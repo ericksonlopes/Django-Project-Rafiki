@@ -1,5 +1,6 @@
 {% load static %}
 <!DOCTYPE HTML>
+<html>
 	<head>
 		<title>Future Imperfect by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -84,7 +85,6 @@
 						{% else %}
 							<section>
 									<ul class="actions stacked">
-										{{ user.get_full_name }}
 										<li><a href="{% url 'logout' %}" class="button large fit">Sair</a></li>
 									</ul>
 							</section>
@@ -501,7 +501,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								<a href="#" class="logo"><img src="{% static 'images/logo.jpg' %}" alt="" /></a>
 								<header>
 									<h2>Rafiki</h2>
-									<p>Qual seu pensamento de hoje ?</p>
+
+									{% if user.is_anonymous %}
+										<p>Seja bem vindo, clique <a>aqui</a> para se registrar</p>
+									{% else %}
+										<p>Olá, {{ user.username }}.</p>
+									{% endif %}
 								</header>
 							</section>
 
