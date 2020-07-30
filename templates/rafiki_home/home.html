@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Meus posts {% endblock %}
+
+{% block content %}
+
+{% for post in posts %}
+<div id="main">
+    <article class="post">
+        <header>
+            <div class="title">
+                <h2><a href="single.html">{{ post.title }}</a></h2>
+                <p>{{ post.sub_title }}</p>
+            </div>
+            <div class="meta">
+                <time class="published" datetime="2015-11-01">November 1, 2015</time>
+                <a href="#" class="author"><span class="name">{{ post.user }}</span><img src="{% static 'images/avatar.jpg' %}" alt="" /></a>
+            </div>
+        </header>
+
+        <p>{{ post.text }}</p>
+        <footer>
+            <ul class="actions">
+                <li><a href="single.html" class="button large">Continue lendo...</a></li>
+            </ul>
+<!--            <ul class="stats">-->
+<!--                <li><a href="#">General</a></li>-->
+<!--                <li><a href="#" class="icon solid fa-heart">28</a></li>-->
+<!--                <li><a href="#" class="icon solid fa-comment">128</a></li>-->
+<!--            </ul>-->
+        </footer>
+    </article>
+</div>
+{% endfor %}
+
+{% endblock %}
