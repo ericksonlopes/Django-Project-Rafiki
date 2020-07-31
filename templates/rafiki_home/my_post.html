@@ -4,6 +4,14 @@
 
 {% block content %}
 
+<div class="row">
+    <div class="col-6 col-12-medium">
+        <ul class="actions">
+            <li><a href="{% url 'create' %}" class="button">Criar novo post</a></li>
+        </ul>
+    </div>
+</div>
+
 {% if posts %}
     {% for post in posts %}
     <div id="main">
@@ -13,10 +21,6 @@
                     <h2><a href="single.html">{{ post.title }}</a></h2>
                     <p>{{ post.sub_title }}</p>
                 </div>
-                <div class="meta">
-                    <time class="published" datetime="2015-10-18">October 18, 2015</time>
-
-                </div>
             </header>
 
             <p>{{ post.text }}</p>
@@ -24,18 +28,8 @@
                 <ul class="actions">
                     <li><a href="single.html" class="button large">Continue lendo...</a></li>
                 </ul>
-                <ul class="stats">
-                    <li><a href="#">General</a></li>
-                    <li><a href="#" class="icon solid fa-heart">28</a></li>
-                    <li><a href="#" class="icon solid fa-comment">128</a></li>
-                </ul>
             </footer>
         </article>
-
-                    <ul class="actions pagination">
-                        <li><a href="" class="disabled button large previous">Práxima página </a></li>
-                        <li><a href="#" class="button large next">Next Page</a></li>
-                    </ul>
     </div>
     {% endfor %}
 

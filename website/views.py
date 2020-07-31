@@ -14,3 +14,8 @@ def home(request):
 def my_post(request):
     posts = Post.objects.filter(user=request.user.id)
     return render(request, 'rafiki_home/my_post.html', {'posts': posts})
+
+
+@login_required(login_url='login')
+def create_post(request):
+    pass

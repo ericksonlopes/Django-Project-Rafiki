@@ -16,8 +16,6 @@
 						<h1><a href="{% url 'home' %}">Rafiki</a></h1>
 						<nav class="links">
 							<ul>
-								<li><a href="#">Hoje</a></li>
-								<li><a href="#">Favoritos</a></li>
 								<li><a href="{% url 'my_post' %}">Meus post</a></li>
 							</ul>
 						</nav>
@@ -101,18 +99,15 @@
 					<section id="sidebar">
 
 						<!-- Intro -->
+						{% if user.is_anonymous %}
 							<section id="intro">
 								<a href="#" class="logo"><img src="{% static 'images/logo.jpg' %}" alt="" /></a>
 								<header>
 									<h2>Rafiki</h2>
-
-									{% if user.is_anonymous %}
-										<p>Seja bem vindo, clique <a>aqui</a> para se registrar</p>
-									{% else %}
-										<p>Olá, {{ user.username }}.</p>
-									{% endif %}
+										<p>Seja bem vindo, clique <a>aqui</a> para se registrar ou fazer login</p>
 								</header>
 							</section>
+						{% endif %}
 
 						<!-- Mini Posts -->
 							<section>
