@@ -18,4 +18,5 @@ def my_post(request):
 
 @login_required(login_url='login')
 def create_post(request):
-    pass
+    if request.POST:
+        return render(request, 'rafiki_home/create.html')
